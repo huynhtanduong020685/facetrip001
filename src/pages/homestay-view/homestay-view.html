@@ -1,0 +1,54 @@
+<!--
+  Generated template for the HomestayDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="uploads">
+    <img [src]="homeStay['picture']" alt="">
+  </div>
+  <ion-grid class="homestay-desc">
+    <ion-row>
+      <ion-col>Locaiton</ion-col>
+      <ion-col>{{homeStay['location']}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Daily Price</ion-col>
+      <ion-col>{{homeStay['price']|currency:'USD'}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Wifi</ion-col>
+      <ion-col>{{homeStay['wifi']? 'Yes': 'No'}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Breakfast</ion-col>
+      <ion-col>{{homeStay['breakfast'] ? 'Yes': 'No'}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>{{homeStay['description']}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-item-divider>Reviews</ion-item-divider>
+  <ion-list>
+    <ion-item *ngFor="let review of reviews;">
+      <ion-avatar item-start>
+        <img [src]="review['picture']">
+      </ion-avatar>
+      <h2>{{review['name']}}</h2>
+      <p>{{review['review']}}</p>
+    </ion-item>
+  </ion-list>
+  <p>Write your Review</p>
+  <ion-textarea placeholder="Write your comment for this homestay" [(ngModel)]="comment" rows="4"></ion-textarea>
+  <button (tap)="addReview()" ion-button small>Submit</button>
+  <br>
+</ion-content>

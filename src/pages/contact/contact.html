@@ -1,0 +1,18 @@
+<ion-header color="color-header">
+  <ion-navbar color="color-header">
+    <ion-title>
+        FACE TRIP
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+   <ion-list>
+      <ion-item (tap)="goToChat(item)" *ngFor="let item of chatHistory">
+        <ion-avatar item-start>
+          <img [src]="item['picture']">
+        </ion-avatar>
+        <h2>{{item['name']}}</h2>
+      </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar color="color-header">
+    <!-- <ion-buttons left>
+        <button (tap)="back()" ion-button icon-only clear>
+          <ion-icon name="md-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons> -->
+      <ion-title>
+        FACE TRIP
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4 text-center>
+              <img [src]="user['picture']+'?type=normal'" alt="">
+            </ion-col>
+            <ion-col col-8>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <b>{{user['name']}}</b>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <span>{{user['city']}}, {{user['country']}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <span class="langs">{{user['language1']}}</span>
+                    <span class="langs">{{user['language2']}}</span>
+                    <span class="langs">{{user['language3']}}</span>
+                    <span class="langs">{{user['language4']}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <span class="label">Fee: </span> <span>{{user['guide_fee']? user['guide_fee'] : 'Free'}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <span>{{user['meet_at_airport'] ? 'Meet at Airport': 'Not meet at Airport'}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    {{user['introduction']}}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col text-right style="justify-content: flex-end">
+                <button (tap)="openBrowser(user['fb_id'])" color="facebook" ion-button icon-only clear>
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+                <button (tap)="goToChat()" color="_gray" ion-button icon-only clear>
+                  <ion-icon name="md-chatboxes"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    <ion-list>
+      <ion-item-divider>
+        Homestay List
+      </ion-item-divider>
+      <ion-item *ngFor="let item of homestayList" (tap)="viewDetail(item)">
+        <ion-thumbnail item-start>
+          <img [src]="item['picture']">
+        </ion-thumbnail>
+        <h3>{{item['location']}}</h3>
+        <p><span>Price:</span> {{item['price']|currency:'USD'}}/day</p>
+        <p> <span>Wifi:</span> {{item['wifi']?'Yes': 'No'}}</p>
+        <p> <span>Breakfast:</span> {{item['breakfast']?'Yes': 'No'}}</p>
+        <p>{{item['description']}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>

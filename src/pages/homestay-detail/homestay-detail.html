@@ -1,0 +1,42 @@
+<!--
+  Generated template for the HomestayDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="uploads">
+    <img [src]="homeStay['picture']" alt="">
+    <div class="upload-btn-wrapper">
+      <button class="btn">Upload a photo</button>
+      <input type="file" (change)="uploadFile($event)">
+    </div>
+  </div>
+  <ion-item>
+    <ion-label floating>Location</ion-label>
+    <ion-input [(ngModel)]="homeStay['location']"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Daily Price</ion-label>
+      <ion-input type="number" [(ngModel)]="homeStay['price']"></ion-input>
+    </ion-item>
+  <ion-item>
+    <ion-label>Wifi</ion-label>
+    <ion-toggle [(ngModel)]="homeStay['wifi']"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Breakfast</ion-label>
+    <ion-toggle [(ngModel)]="homeStay['breakfast']"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Description</ion-label>
+    <ion-textarea [(ngModel)]="homeStay['description']" rows="4"></ion-textarea>
+  </ion-item>
+  <button [disabled]="!homeStay['picture']" ion-button color="primary" full (tap)="submitHomeStay()">Submit</button>
+</ion-content>

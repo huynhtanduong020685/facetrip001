@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="color-header">
+    <ion-title>
+      FACE TRIP
+    </ion-title>
+  </ion-navbar>
+  <div class="searchbox">
+    <ion-searchbar [(ngModel)]="country" (ionClear)="onSearchClearCountry()" (search)="searchLocal()" placeholder="Countries" mode="ios"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="language"  (ionClear)="onSearchClearLanguage()"  (search)="searchLocal()" placeholder="Languages" mode="ios"></ion-searchbar>
+  </div>
+
+</ion-header>
+<ion-content>
+    <button ion-button icon-right (tap)="askLocals()" color="danger">
+        Ask Locals
+        <ion-icon name="md-chatboxes"></ion-icon>
+      </button>
+  <ion-card *ngFor="let user of localList">
+    <ion-card-content>
+
+      <ion-grid>
+        <ion-row >
+          <ion-col col-3 text-center>
+            <ion-checkbox [(ngModel)]="user['checked']"></ion-checkbox>
+            <img [src]="user['picture']+'?type=normal'" alt="" (tap)="viewDetail(user)">
+          </ion-col>
+          <ion-col col-9 (tap)="viewDetail(user)">
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                  <b>{{user['name']}}</b>
+                </ion-col>
+                <ion-col col-4><span>{{user['city']}}, {{user['country']}}</span></ion-col>
+                <ion-col col-2 text-center>
+                  <ion-icon name ="ios-home"></ion-icon>
+                </ion-col>
+                <ion-col col-2>
+                    {{user['guide_fee']? user['guide_fee'] : 'Free'}}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-8>
+                  <span class="langs">{{user['language1']}}</span>
+                  <span class="langs">{{user['language2']}}</span>
+                  <span class="langs">{{user['language3']}}</span>
+                  <span class="langs">{{user['language4']}}</span>
+                </ion-col>
+                <ion-col col-2 text-center>$10</ion-col>
+                <ion-col col-2></ion-col>
+              </ion-row>
+
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,24 @@
+page-homestay-view {
+  .content {
+    .grid {
+      &.homestay-desc {
+        .row {
+          .col {
+            text-align: right;
+
+            &:first-of-type {
+              color: #888;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+    textarea{
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 0;
+    }
+  }
+}

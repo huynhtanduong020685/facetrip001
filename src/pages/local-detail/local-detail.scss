@@ -1,0 +1,58 @@
+page-local-detail {
+    .content {
+        .card {
+          padding: 0;
+          margin: 0;
+          margin-bottom: 10px;
+          width: 100%;
+    
+          .card-content {
+            padding: 0;
+    
+            span {
+              color: #888;
+              font-size: 12px;
+    
+              &.langs {
+                padding-right: 5px;
+              }
+    
+              &.label {
+                color: #424242;
+              }
+            }
+    
+            .button {
+              span {
+                color: inherit;
+              }
+    
+              .icon {
+                font-size: 35px;
+              }
+            }
+    
+            .grid {
+              .row {
+                .col {
+                  display: flex;
+                  align-items: center;
+                  padding: 2px;
+                }
+              }
+            }
+    
+          }
+        }
+        .list{
+            .item{
+                p{
+                    white-space: normal;
+                    span{
+                        color: #000;
+                    }
+                }
+            }
+        }
+      }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "facetrip",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,32 @@
+select-country {
+  .content {
+    .login-wrap {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      position: absolute;
+      width: 100%;
+
+      img {
+        width: 100px;
+      }
+
+      h1 {
+        color: theme-colors('textColors', 'primary');
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 2rem;
+      }
+
+      ion-auto-complete {
+        .text-input {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+}
